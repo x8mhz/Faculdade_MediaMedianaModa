@@ -30,7 +30,7 @@ namespace MediaMedianaModa
                  // Ordenas os números digitados
                 #region Ordenacao
 
-                var lista = Array.ConvertAll(txt_Numeros.Text.Replace(".", ",").Replace("0", "").Trim().Split(' ', '\n'), double.Parse).ToList();
+                var lista = Array.ConvertAll(txt_Numeros.Text.Replace(".", ",").Replace(" 0", "").Trim().Split(' ', '\n'), double.Parse).ToList();
 
                 lista.Sort();
 
@@ -115,7 +115,7 @@ namespace MediaMedianaModa
                 // Configurações e mensagem de restrição
                 btn_Limpar.BringToFront();
                 txt_Numeros.Enabled = false;
-                txt_Numeros.Text = @"Apenas inteiros ou decimais são aceitos";
+                txt_Numeros.Text = @"Apenas inteiros e decimais são aceitos";
             }
         }
 
