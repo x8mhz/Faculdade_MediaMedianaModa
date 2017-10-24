@@ -58,7 +58,7 @@ namespace MediaMedianaModa
 
                  // Calcula a mediana
                  // Exemplo: ((10 10 30 = 10) ou (((10 10 20 30 = 10 + 20) = 30) / 2 = 15))
-                #region MyRegion
+                #region Mediana
 
                 _lista = new List<double>();
 
