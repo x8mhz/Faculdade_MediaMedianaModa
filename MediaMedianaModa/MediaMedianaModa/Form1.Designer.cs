@@ -30,19 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txt_Numeros = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
-            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.lbl_Media = new System.Windows.Forms.Label();
-            this.lbl_Mediana = new System.Windows.Forms.Label();
-            this.lbl_Moda = new System.Windows.Forms.Label();
-            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.btn_Gerar = new Bunifu.Framework.UI.BunifuTileButton();
             this.txt_Ordenado = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txt_Numeros = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.btn_Gerar = new Bunifu.Framework.UI.BunifuTileButton();
             this.btn_Limpar = new Bunifu.Framework.UI.BunifuTileButton();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.lbl_Moda = new System.Windows.Forms.Label();
+            this.lbl_Mediana = new System.Windows.Forms.Label();
+            this.lbl_Media = new System.Windows.Forms.Label();
+            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -61,94 +61,18 @@
             this.panel1.Size = new System.Drawing.Size(608, 157);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // txt_Ordenado
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.lbl_Moda);
-            this.panel2.Controls.Add(this.lbl_Mediana);
-            this.panel2.Controls.Add(this.lbl_Media);
-            this.panel2.Controls.Add(this.bunifuCustomLabel3);
-            this.panel2.Controls.Add(this.bunifuCustomLabel2);
-            this.panel2.Controls.Add(this.bunifuCustomLabel1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 157);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(608, 151);
-            this.panel2.TabIndex = 1;
-            // 
-            // txt_Numeros
-            // 
-            this.txt_Numeros.BorderColor = System.Drawing.Color.SeaGreen;
-            this.txt_Numeros.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Numeros.Location = new System.Drawing.Point(153, 12);
-            this.txt_Numeros.Multiline = true;
-            this.txt_Numeros.Name = "txt_Numeros";
-            this.txt_Numeros.Size = new System.Drawing.Size(444, 58);
-            this.txt_Numeros.TabIndex = 0;
-            // 
-            // bunifuCustomLabel1
-            // 
-            this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(62, 15);
-            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(77, 25);
-            this.bunifuCustomLabel1.TabIndex = 0;
-            this.bunifuCustomLabel1.Text = "Média:";
-            // 
-            // bunifuCustomLabel2
-            // 
-            this.bunifuCustomLabel2.AutoSize = true;
-            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(38, 55);
-            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(101, 25);
-            this.bunifuCustomLabel2.TabIndex = 1;
-            this.bunifuCustomLabel2.Text = "Mediana:";
-            // 
-            // bunifuCustomLabel3
-            // 
-            this.bunifuCustomLabel3.AutoSize = true;
-            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(67, 100);
-            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
-            this.bunifuCustomLabel3.Size = new System.Drawing.Size(72, 25);
-            this.bunifuCustomLabel3.TabIndex = 2;
-            this.bunifuCustomLabel3.Text = "Moda:";
-            // 
-            // lbl_Media
-            // 
-            this.lbl_Media.AutoSize = true;
-            this.lbl_Media.BackColor = System.Drawing.Color.Azure;
-            this.lbl_Media.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Media.Location = new System.Drawing.Point(152, 19);
-            this.lbl_Media.Name = "lbl_Media";
-            this.lbl_Media.Size = new System.Drawing.Size(93, 20);
-            this.lbl_Media.TabIndex = 3;
-            this.lbl_Media.Text = "                     ";
-            // 
-            // lbl_Mediana
-            // 
-            this.lbl_Mediana.AutoSize = true;
-            this.lbl_Mediana.BackColor = System.Drawing.Color.Thistle;
-            this.lbl_Mediana.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Mediana.Location = new System.Drawing.Point(152, 59);
-            this.lbl_Mediana.Name = "lbl_Mediana";
-            this.lbl_Mediana.Size = new System.Drawing.Size(93, 20);
-            this.lbl_Mediana.TabIndex = 4;
-            this.lbl_Mediana.Text = "                     ";
-            // 
-            // lbl_Moda
-            // 
-            this.lbl_Moda.AutoSize = true;
-            this.lbl_Moda.BackColor = System.Drawing.SystemColors.Info;
-            this.lbl_Moda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Moda.Location = new System.Drawing.Point(152, 104);
-            this.lbl_Moda.Name = "lbl_Moda";
-            this.lbl_Moda.Size = new System.Drawing.Size(93, 20);
-            this.lbl_Moda.TabIndex = 5;
-            this.lbl_Moda.Text = "                     ";
+            this.txt_Ordenado.BackColor = System.Drawing.Color.Gainsboro;
+            this.txt_Ordenado.BorderColor = System.Drawing.Color.SeaGreen;
+            this.txt_Ordenado.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Ordenado.Enabled = false;
+            this.txt_Ordenado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Ordenado.Location = new System.Drawing.Point(153, 100);
+            this.txt_Ordenado.Multiline = true;
+            this.txt_Ordenado.Name = "txt_Ordenado";
+            this.txt_Ordenado.Size = new System.Drawing.Size(443, 45);
+            this.txt_Ordenado.TabIndex = 7;
             // 
             // bunifuCustomLabel4
             // 
@@ -159,6 +83,16 @@
             this.bunifuCustomLabel4.Size = new System.Drawing.Size(189, 24);
             this.bunifuCustomLabel4.TabIndex = 2;
             this.bunifuCustomLabel4.Text = "Números ordenados:";
+            // 
+            // txt_Numeros
+            // 
+            this.txt_Numeros.BorderColor = System.Drawing.Color.SeaGreen;
+            this.txt_Numeros.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Numeros.Location = new System.Drawing.Point(153, 12);
+            this.txt_Numeros.Multiline = true;
+            this.txt_Numeros.Name = "txt_Numeros";
+            this.txt_Numeros.Size = new System.Drawing.Size(444, 58);
+            this.txt_Numeros.TabIndex = 0;
             // 
             // btn_Gerar
             // 
@@ -180,19 +114,6 @@
             this.btn_Gerar.TabIndex = 6;
             this.btn_Gerar.Click += new System.EventHandler(this.btn_Gerar_Click);
             // 
-            // txt_Ordenado
-            // 
-            this.txt_Ordenado.BackColor = System.Drawing.Color.Gainsboro;
-            this.txt_Ordenado.BorderColor = System.Drawing.Color.SeaGreen;
-            this.txt_Ordenado.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_Ordenado.Enabled = false;
-            this.txt_Ordenado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Ordenado.Location = new System.Drawing.Point(153, 100);
-            this.txt_Ordenado.Multiline = true;
-            this.txt_Ordenado.Name = "txt_Ordenado";
-            this.txt_Ordenado.Size = new System.Drawing.Size(443, 45);
-            this.txt_Ordenado.TabIndex = 7;
-            // 
             // btn_Limpar
             // 
             this.btn_Limpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(17)))), ((int)(((byte)(35)))));
@@ -213,6 +134,22 @@
             this.btn_Limpar.TabIndex = 8;
             this.btn_Limpar.Click += new System.EventHandler(this.btn_Limpar_Click);
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.lbl_Moda);
+            this.panel2.Controls.Add(this.lbl_Mediana);
+            this.panel2.Controls.Add(this.lbl_Media);
+            this.panel2.Controls.Add(this.bunifuCustomLabel3);
+            this.panel2.Controls.Add(this.bunifuCustomLabel2);
+            this.panel2.Controls.Add(this.bunifuCustomLabel1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 157);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(608, 151);
+            this.panel2.TabIndex = 1;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -222,6 +159,69 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Contato: fabricio.ramoss@hotmail.com";
             // 
+            // lbl_Moda
+            // 
+            this.lbl_Moda.AutoSize = true;
+            this.lbl_Moda.BackColor = System.Drawing.SystemColors.Info;
+            this.lbl_Moda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Moda.Location = new System.Drawing.Point(152, 104);
+            this.lbl_Moda.Name = "lbl_Moda";
+            this.lbl_Moda.Size = new System.Drawing.Size(93, 20);
+            this.lbl_Moda.TabIndex = 5;
+            this.lbl_Moda.Text = "                     ";
+            // 
+            // lbl_Mediana
+            // 
+            this.lbl_Mediana.AutoSize = true;
+            this.lbl_Mediana.BackColor = System.Drawing.Color.Thistle;
+            this.lbl_Mediana.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Mediana.Location = new System.Drawing.Point(152, 59);
+            this.lbl_Mediana.Name = "lbl_Mediana";
+            this.lbl_Mediana.Size = new System.Drawing.Size(93, 20);
+            this.lbl_Mediana.TabIndex = 4;
+            this.lbl_Mediana.Text = "                     ";
+            // 
+            // lbl_Media
+            // 
+            this.lbl_Media.AutoSize = true;
+            this.lbl_Media.BackColor = System.Drawing.Color.Azure;
+            this.lbl_Media.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Media.Location = new System.Drawing.Point(152, 19);
+            this.lbl_Media.Name = "lbl_Media";
+            this.lbl_Media.Size = new System.Drawing.Size(93, 20);
+            this.lbl_Media.TabIndex = 3;
+            this.lbl_Media.Text = "                     ";
+            // 
+            // bunifuCustomLabel3
+            // 
+            this.bunifuCustomLabel3.AutoSize = true;
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(67, 100);
+            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(72, 25);
+            this.bunifuCustomLabel3.TabIndex = 2;
+            this.bunifuCustomLabel3.Text = "Moda:";
+            // 
+            // bunifuCustomLabel2
+            // 
+            this.bunifuCustomLabel2.AutoSize = true;
+            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(38, 55);
+            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(101, 25);
+            this.bunifuCustomLabel2.TabIndex = 1;
+            this.bunifuCustomLabel2.Text = "Mediana:";
+            // 
+            // bunifuCustomLabel1
+            // 
+            this.bunifuCustomLabel1.AutoSize = true;
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(62, 15);
+            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(77, 25);
+            this.bunifuCustomLabel1.TabIndex = 0;
+            this.bunifuCustomLabel1.Text = "Média:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,6 +230,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UNESA [Trabalho de Probabilidade e Estatística]";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

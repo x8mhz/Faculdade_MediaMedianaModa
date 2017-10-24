@@ -27,12 +27,10 @@ namespace MediaMedianaModa
         {
             try
             {
-                /* 
-                 * Ordenas os números digitados
-                 */
+                 // Ordenas os números digitados
                 #region Ordenacao
 
-                var lista = Array.ConvertAll(txt_Numeros.Text.Replace(".", ",").Trim().Split(' ', '\n'), double.Parse).ToList();
+                var lista = Array.ConvertAll(txt_Numeros.Text.Replace(".", ",").Replace("0", "").Trim().Split(' ', '\n'), double.Parse).ToList();
 
                 lista.Sort();
 
@@ -43,10 +41,8 @@ namespace MediaMedianaModa
 
                 #endregion
 
-                /*
-                 * Calcula a média
-                 * Exemplo: ((10 10 30 = 50) / 3 = 15)
-                 */
+                 // Calcula a média
+                 // Exemplo: ((10 10 30 = 50) / 3 = 15)
                 #region Media
 
                 _lista = new List<double>();
@@ -60,10 +56,8 @@ namespace MediaMedianaModa
 
                 #endregion
 
-                /*
-                 * Calcula a mediana
-                 * Exemplo: ((10 10 30 = 10) ou (((10 10 20 30 = 10 + 20) = 30) / 2 = 15))
-                 */
+                 // Calcula a mediana
+                 // Exemplo: ((10 10 30 = 10) ou (((10 10 20 30 = 10 + 20) = 30) / 2 = 15))
                 #region MyRegion
 
                 _lista = new List<double>();
@@ -86,11 +80,20 @@ namespace MediaMedianaModa
 
                 #endregion
 
-                /*
-                 * CALCULA A MODA
-                 * Exemplo: (10 10 20 30 40 = 10) (qual possui a maior frequência)
-                 */
+                 // CALCULA A MODA
+                 // Exemplo: (10 10 20 30 40 = 10) (qual possui a maior frequência)
                 #region Moda
+
+                for (var i = 0; i < lista.Count; i++)
+                {
+                    for (var j = i; j < lista[j]; j++)
+                    {
+                        if (Equals(lista[i], lista[j]))
+                        {
+                            lbl_Moda.Text = @"Amodal";
+                        }
+                    }
+                }
 
                 var moda = lista.GroupBy(p => p)
                     .OrderByDescending(p => p.Count())
@@ -100,7 +103,6 @@ namespace MediaMedianaModa
                 lbl_Moda.Text = moda.ToString(CultureInfo.InvariantCulture);
 
                 #endregion
-
 
                 // Configuração do botão
                 btn_Limpar.BringToFront();
