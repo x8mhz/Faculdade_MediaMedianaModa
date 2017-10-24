@@ -21,18 +21,26 @@ namespace MediaMedianaModa
         public Form1()
         {
             InitializeComponent();
-        }  
+        }
 
         private void btn_Gerar_Click(object sender, EventArgs e)
         {
             try
             {
-                 // Ordenas os números digitados
+                // Ordenas os números digitados
                 #region Ordenacao
 
-                var lista = Array.ConvertAll(txt_Numeros.Text.Replace(".", ",").Replace(" 0", "").Trim().Split(' ', '\n'), double.Parse).ToList();
+                var lista = Array.ConvertAll(txt_Numeros.Text.Replace(".", ",").Trim().Split(' ', '\n'), double.Parse).ToList();
 
                 lista.Sort();
+
+                for (int i = 0; i < lista.Count; i++)
+                {
+                    if (lista[i] == 0)
+                    {
+                        lista.RemoveAt(i);
+                    }
+                }
 
                 foreach (var item in lista)
                 {
@@ -41,8 +49,8 @@ namespace MediaMedianaModa
 
                 #endregion
 
-                 // Calcula a média
-                 // Exemplo: ((10 10 30 = 50) / 3 = 15)
+                // Calcula a média
+                // Exemplo: ((10 10 30 = 50) / 3 = 15)
                 #region Media
 
                 _lista = new List<double>();
@@ -56,9 +64,9 @@ namespace MediaMedianaModa
 
                 #endregion
 
-                 // Calcula a mediana
-                 // Exemplo: ((10 10 30 = 10) ou (((10 10 20 30 = 10 + 20) = 30) / 2 = 15))
-                #region Mediana
+                // Calcula a mediana
+                // Exemplo: ((10 10 30 = 10) ou (((10 10 20 30 = 10 + 20) = 30) / 2 = 15))
+                #region MyRegion
 
                 _lista = new List<double>();
 
@@ -80,27 +88,36 @@ namespace MediaMedianaModa
 
                 #endregion
 
-                 // CALCULA A MODA
-                 // Exemplo: (10 10 20 30 40 = 10) (qual possui a maior frequência)
+                // CALCULA A MODA
+                // Exemplo: (10 10 20 30 40 = 10) (qual possui a maior frequência)
                 #region Moda
+
+                var cont = 0;
 
                 for (var i = 0; i < lista.Count; i++)
                 {
-                    for (var j = i; j < lista[j]; j++)
-                    {
-                        if (Equals(lista[i], lista[j]))
+                    for (var j = i + 1; j < lista.Count; j++)
+                    {                    
+                        if (lista[i] == lista[j])
                         {
-                            lbl_Moda.Text = @"Amodal";
+                            cont++;
                         }
                     }
                 }
 
-                var moda = lista.GroupBy(p => p)
-                    .OrderByDescending(p => p.Count())
-                    .First()
-                    .Key;
+                if (cont > 0)
+                {
+                    var moda = lista.GroupBy(p => p)
+                        .OrderByDescending(p => p.Count())
+                        .First()
+                        .Key;
 
-                lbl_Moda.Text = moda.ToString(CultureInfo.InvariantCulture);
+                    lbl_Moda.Text = moda.ToString(CultureInfo.InvariantCulture);
+                }
+                else
+                {
+                    lbl_Moda.Text = @"Amodal";
+                }               
 
                 #endregion
 
@@ -115,7 +132,7 @@ namespace MediaMedianaModa
                 // Configurações e mensagem de restrição
                 btn_Limpar.BringToFront();
                 txt_Numeros.Enabled = false;
-                txt_Numeros.Text = @"Apenas inteiros e decimais são aceitos";
+                txt_Numeros.Text = @"Apenas inteiros ou decimais são aceitos";
             }
         }
 
