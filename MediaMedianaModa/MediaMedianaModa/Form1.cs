@@ -14,7 +14,6 @@ namespace MediaMedianaModa
      * Qualquer dúvida sobre o sistema podem me contactar pelo email: fabricio.ramoss@hotmail.com
      * BONS ESTUDOS!
      */
-
     public partial class Form1 : Form
     {
         private List<double> _lista;
@@ -34,6 +33,7 @@ namespace MediaMedianaModa
                 #region Ordenacao
 
                 var lista = Array.ConvertAll(txt_Numeros.Text.Replace(".", ",").Trim().Split(' ', '\n'), double.Parse).ToList();
+
                 lista.Sort();
 
                 foreach (var item in lista)
@@ -55,6 +55,7 @@ namespace MediaMedianaModa
                 {
                     _lista.Add(item);
                 }
+
                 lbl_Media.Text = Math.Round(_lista.Sum() / _lista.Count, 2).ToString(CultureInfo.InvariantCulture);
 
                 #endregion
@@ -66,6 +67,7 @@ namespace MediaMedianaModa
                 #region MyRegion
 
                 _lista = new List<double>();
+
                 foreach (var item in lista)
                 {
                     _lista.Add(item);
