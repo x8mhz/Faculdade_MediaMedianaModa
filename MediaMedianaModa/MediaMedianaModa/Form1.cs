@@ -27,9 +27,8 @@ namespace MediaMedianaModa
         {
             try
             {
-                // Ordenas os números digitados
-                #region Ordenacao
-
+                #region EdicaoOrdenacao
+    
                 var lista = Array.ConvertAll(txt_Numeros.Text.Replace(".", ",").Trim().Split(' ', '\n'), double.Parse).ToList();
 
                 lista.Sort();
@@ -42,10 +41,15 @@ namespace MediaMedianaModa
                     }
                 }
 
+                var total = 0.0;
+
                 foreach (var item in lista)
                 {
                     txt_Ordenado.Text += item + @" ";
+                    total += item;
                 }
+
+                lbl_Total.Text = Convert.ToString(total, CultureInfo.InvariantCulture);
 
                 #endregion
 
@@ -53,20 +57,14 @@ namespace MediaMedianaModa
                 // Exemplo: ((10 10 30 = 50) / 3 = 15)
                 #region Media
 
-                _lista = new List<double>();
-
-                foreach (var item in lista)
-                {
-                    _lista.Add(item);
-                }
-
-                lbl_Media.Text = Math.Round(_lista.Sum() / _lista.Count, 2).ToString(CultureInfo.InvariantCulture);
+                var media = Math.Round(lista.Sum() / lista.Count, 2);
+                lbl_Media.Text = media.ToString(CultureInfo.InvariantCulture);
 
                 #endregion
 
                 // Calcula a mediana
                 // Exemplo: ((10 10 30 = 10) ou (((10 10 20 30 = 10 + 20) = 30) / 2 = 15))
-                #region MyRegion
+                #region Mediana
 
                 _lista = new List<double>();
 
@@ -97,7 +95,7 @@ namespace MediaMedianaModa
                 for (var i = 0; i < lista.Count; i++)
                 {
                     for (var j = i + 1; j < lista.Count; j++)
-                    {                    
+                    {
                         if (lista[i] == lista[j])
                         {
                             cont++;
@@ -117,7 +115,32 @@ namespace MediaMedianaModa
                 else
                 {
                     lbl_Moda.Text = @"Amodal";
-                }               
+                }
+
+                #endregion
+
+                // CALCULA VARIÂNCIA
+                // Explicação: Valor(Xi) menos média elevado a dois.
+                #region Variancia
+
+                var listaVariancia = new List<double>();
+
+                foreach (var item in lista)
+                {
+                    listaVariancia.Add((item - media) * (item - media));
+                }
+
+                var variancia = Math.Round(listaVariancia.Sum() / (5 - 1));
+                lbl_Variancia.Text = Convert.ToString(variancia);
+
+                #endregion
+
+                // CALCULA O DESVIO PADRÃO
+                // Explicação: A raiz quadrada da variância.
+                #region DesvioPadrao
+
+                var desvioPadrao = Math.Round(Math.Sqrt(variancia));
+                lbl_DesvioPadrao.Text = Convert.ToString(desvioPadrao, CultureInfo.InvariantCulture);
 
                 #endregion
 
@@ -150,5 +173,17 @@ namespace MediaMedianaModa
             btn_Gerar.BringToFront();
             txt_Numeros.Enabled = true;
         }
+
+        // Recebe o valor do usuário.
+        // Edição: Elimita os zeros e configura as virgulas, pontos e as quebra de linhas.
+
+        //ORDENA OS VALORES
+
+
+        //CALCULA O TOTAL
+        //
+
+
+
     }
 }
