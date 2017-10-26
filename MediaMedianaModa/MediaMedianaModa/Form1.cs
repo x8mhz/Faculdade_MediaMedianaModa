@@ -43,7 +43,6 @@ namespace MediaMedianaModa
                     txt_Ordenado.Text += item + @" ";
                     total += item;
                 }
-
                 lbl_Total.Text =total.ToString();
 
                 // CALCULA A MÉDIA
@@ -59,7 +58,6 @@ namespace MediaMedianaModa
                 {
                     _lista.Add(item);
                 }
-
                 lbl_Mediana.Text = _lista.Count % 2 == 0 ? ((_lista[_lista.Count / 2 - 1] + _lista[_lista.Count / 2]) / 2)
                     .ToString() : (_lista[_lista.Count / 2]).ToString();
 
@@ -77,7 +75,6 @@ namespace MediaMedianaModa
                         }
                     }
                 }
-
                 if (cont > 0)
                 {
                     var moda = lista.GroupBy(p => p)
@@ -124,14 +121,12 @@ namespace MediaMedianaModa
         {
             txt_Numeros.Clear();
             txt_Ordenado.Clear();
-
             lbl_Total.Text = "";
             lbl_Media.Text = "";
             lbl_Mediana.Text = "";
             lbl_Moda.Text = "";
             lbl_Variancia.Text = "";
             lbl_DesvioPadrao.Text = "";
-
             btn_Gerar.BringToFront();
             txt_Numeros.Enabled = true;
         }
