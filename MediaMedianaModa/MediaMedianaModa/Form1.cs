@@ -27,75 +27,51 @@ namespace MediaMedianaModa
         {
             try
             {
-                // ORDENA E EDITA OS NÚMEROS INFORMADO PELO USUÁRIO
-                #region EdicaoOrdenacao
-    
+                // ORDENA E EDITA OS NÚMEROS INFORMADO PELO USUÁRIO   
                 // Convert e edit ponto para virgula.
-                var lista = Array.ConvertAll(txt_Numeros.Text.Replace(".", ",").Trim().Split(' ', '\n'), double.Parse).ToList();
+                var lista = Array.ConvertAll(txt_Numeros.Text.Replace(".", ",")
+                    .Trim().Split(' ', '\n'), double.Parse).ToList();
 
                 // Ordena os vlores digitados.
                 lista.Sort();
 
                 // Remove todos os valores zero da lista.
                 lista.RemoveAll(p => p.Equals(0));
-
                 var total = 0.0;
-
                 foreach (var item in lista)
                 {
                     txt_Ordenado.Text += item + @" ";
                     total += item;
                 }
 
-                lbl_Total.Text = Convert.ToString(total, CultureInfo.InvariantCulture);
-
-                #endregion
+                lbl_Total.Text =total.ToString();
 
                 // CALCULA A MÉDIA
-                // Explicação: Soma todos os valores informádo e divide pela quantidade de valores
-                #region Media
-
+                // Explicação: Soma todos os valores informados e divide pela quantidade de valores
                 var media = Math.Round(lista.Sum() / lista.Count, 2);
-                lbl_Media.Text = media.ToString(CultureInfo.InvariantCulture);
-
-                #endregion
+                lbl_Media.Text = media.ToString();
 
                 // CALCULA A MEDIANA
                 // Explicação: Se a quantidade de valores for impar pega o valor que divide a seguencia ao meio,
                 // sendo par soma os dois valores do meio e divide por 2
-                #region Mediana
-
                 _lista = new List<double>();
-
                 foreach (var item in lista)
                 {
                     _lista.Add(item);
                 }
 
-                if (_lista.Count % 2 == 0)
-                {
-                    lbl_Mediana.Text =
-                        ((_lista[_lista.Count / 2 - 1] + _lista[_lista.Count / 2]) / 2).ToString(CultureInfo
-                            .InvariantCulture);
-                }
-                else
-                {
-                    lbl_Mediana.Text = (_lista[_lista.Count / 2]).ToString(CultureInfo.InvariantCulture);
-                }
-
-                #endregion
+                lbl_Mediana.Text = _lista.Count % 2 == 0 ? ((_lista[_lista.Count / 2 - 1] + _lista[_lista.Count / 2]) / 2)
+                    .ToString() : (_lista[_lista.Count / 2]).ToString();
 
                 // CALCULA A MODA
-                // Explicação: Valor que possui a maior frequência, caso todos valores sejam iguais ou caso todos valores sejam diferentes é chamado de amodal.
-                #region Moda
-
+                // Explicação: Valor que possui a maior frequência, caso todos valores sejam iguais ou caso todos valores sejam 
+                // diferentes é chamado de amodal.
                 var cont = 0;
-
                 for (var i = 0; i < lista.Count; i++)
                 {
                     for (var j = i + 1; j < lista.Count; j++)
                     {
-                        if (lista[i] == lista[j])
+                        if (lista[i].Equals(lista[j]))
                         {
                             cont++;
                         }
@@ -109,39 +85,23 @@ namespace MediaMedianaModa
                         .First()
                         .Key;
 
-                    lbl_Moda.Text = moda.ToString(CultureInfo.InvariantCulture);
+                    lbl_Moda.Text = moda.ToString();
                 }
                 else
                 {
                     lbl_Moda.Text = @"Amodal";
                 }
 
-                #endregion
-
                 // CALCULA VARIÂNCIA
                 // Explicação: Valor(Xi) menos média elevado a dois.
-                #region Variancia
-
-                var listaVariancia = new List<double>();
-
-                foreach (var item in lista)
-                {
-                    listaVariancia.Add((item - media) * (item - media));
-                }
-
+                var listaVariancia = lista.Select(item => (item - media) * (item - media)).ToList();
                 var variancia = Math.Round(listaVariancia.Sum() / (5 - 1));
-                lbl_Variancia.Text = Convert.ToString(variancia);
-
-                #endregion
+                lbl_Variancia.Text = variancia.ToString();
 
                 // CALCULA O DESVIO PADRÃO
                 // Explicação: A raiz quadrada da variância.
-                #region DesvioPadrao
-
                 var desvioPadrao = Math.Round(Math.Sqrt(variancia));
-                lbl_DesvioPadrao.Text = Convert.ToString(desvioPadrao, CultureInfo.InvariantCulture);
-
-                #endregion
+                lbl_DesvioPadrao.Text = desvioPadrao.ToString();
 
                 // Configuração do botão
                 btn_Limpar.BringToFront();
