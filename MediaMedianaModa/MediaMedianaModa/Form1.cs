@@ -27,19 +27,17 @@ namespace MediaMedianaModa
         {
             try
             {
+                // ORDENA E EDITA OS NÚMEROS INFORMADO PELO USUÁRIO
                 #region EdicaoOrdenacao
     
+                // Convert e edit ponto para virgula.
                 var lista = Array.ConvertAll(txt_Numeros.Text.Replace(".", ",").Trim().Split(' ', '\n'), double.Parse).ToList();
 
+                // Ordena os vlores digitados.
                 lista.Sort();
 
-                for (int i = 0; i < lista.Count; i++)
-                {
-                    if (lista[i] == 0)
-                    {
-                        lista.RemoveAt(i);
-                    }
-                }
+                // Remove todos os valores zero da lista.
+                lista.RemoveAll(p => p.Equals(0));
 
                 var total = 0.0;
 
@@ -53,8 +51,8 @@ namespace MediaMedianaModa
 
                 #endregion
 
-                // Calcula a média
-                // Exemplo: ((10 10 30 = 50) / 3 = 15)
+                // CALCULA A MÉDIA
+                // Explicação: Soma todos os valores informádo e divide pela quantidade de valores
                 #region Media
 
                 var media = Math.Round(lista.Sum() / lista.Count, 2);
@@ -62,8 +60,9 @@ namespace MediaMedianaModa
 
                 #endregion
 
-                // Calcula a mediana
-                // Exemplo: ((10 10 30 = 10) ou (((10 10 20 30 = 10 + 20) = 30) / 2 = 15))
+                // CALCULA A MEDIANA
+                // Explicação: Se a quantidade de valores for impar pega o valor que divide a seguencia ao meio,
+                // sendo par soma os dois valores do meio e divide por 2
                 #region Mediana
 
                 _lista = new List<double>();
@@ -87,7 +86,7 @@ namespace MediaMedianaModa
                 #endregion
 
                 // CALCULA A MODA
-                // Exemplo: (10 10 20 30 40 = 10) (qual possui a maior frequência)
+                // Explicação: Valor que possui a maior frequência, caso todos valores sejam iguais ou caso todos valores sejam diferentes é chamado de amodal.
                 #region Moda
 
                 var cont = 0;
@@ -166,24 +165,15 @@ namespace MediaMedianaModa
             txt_Numeros.Clear();
             txt_Ordenado.Clear();
 
+            lbl_Total.Text = "";
             lbl_Media.Text = "";
             lbl_Mediana.Text = "";
             lbl_Moda.Text = "";
+            lbl_Variancia.Text = "";
+            lbl_DesvioPadrao.Text = "";
 
             btn_Gerar.BringToFront();
             txt_Numeros.Enabled = true;
         }
-
-        // Recebe o valor do usuário.
-        // Edição: Elimita os zeros e configura as virgulas, pontos e as quebra de linhas.
-
-        //ORDENA OS VALORES
-
-
-        //CALCULA O TOTAL
-        //
-
-
-
     }
 }
