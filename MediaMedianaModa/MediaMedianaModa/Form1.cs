@@ -130,5 +130,10 @@ namespace MediaMedianaModa
             btn_Gerar.BringToFront();
             txt_Numeros.Enabled = true;
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
